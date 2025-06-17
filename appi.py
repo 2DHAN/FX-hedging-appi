@@ -754,7 +754,7 @@ def draw_treee(prices, values, steps, option_type, model='binomial'):
     plt.show()
 st.set_page_config(
     page_title="Forex Hedging 💱",
-    page_icon="image/logo.png",
+    page_icon="assets/logo.png",
     layout="wide"
 )
 
@@ -859,7 +859,8 @@ import streamlit as st
 from PIL import Image
 
 # ======= PARAMÈTRES =======
-bg_image_path = "C:/Users/HOME/Downloads/projet_couverture_risque_change/ana.jpg"
+bg_image_path = "assets/ana.jpg"
+
 full_size = (1200, 500)  # adapte ici la taille max que tu veux
 
 # ======= CHARGER ET REDIMENSIONNER =======
