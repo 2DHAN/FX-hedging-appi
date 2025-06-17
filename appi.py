@@ -754,7 +754,7 @@ def draw_treee(prices, values, steps, option_type, model='binomial'):
     plt.show()
 st.set_page_config(
     page_title="Forex Hedging 💱",
-    page_icon="assets/logo.png",
+    
     layout="wide"
 )
 
@@ -853,47 +853,6 @@ intro_html = """
 </div>
 """
 st.markdown(intro_html, unsafe_allow_html=True)
-
-from PIL import Image, ImageDraw, ImageFilter
-import streamlit as st
-from PIL import Image
-
-# ======= PARAMÈTRES =======
-bg_image_path = "assets/ana.jpg"
-
-full_size = (1200, 500)  # adapte ici la taille max que tu veux
-
-# ======= CHARGER ET REDIMENSIONNER =======
-bg_image = Image.open(bg_image_path).convert("RGBA")
-bg_image = bg_image.resize(full_size)
-
-# ======= FAIRE UN CERCLE =======
-mask = Image.new("L", bg_image.size, 0)
-draw = ImageDraw.Draw(mask)
-draw.ellipse((0, 0) + bg_image.size, fill=255)
-
-circular_image = Image.new("RGBA", bg_image.size)
-circular_image.paste(bg_image, (0, 0), mask=mask)
-
-# ======= CRÉER UN CONTOUR LUMINEUX =======
-# Faire un masque plus large pour simuler la lueur
-glow = mask.filter(ImageFilter.GaussianBlur(15))
-
-# Créer une image vide pour mettre l'effet de glow
-glow_img = Image.new("RGBA", bg_image.size, (0, 255, 255, 100))  # couleur lumière (cyan)
-circular_glow = Image.composite(glow_img, Image.new("RGBA", bg_image.size), glow)
-
-# Combiner l'effet de lumière + image ronde
-final_image = Image.alpha_composite(circular_glow, circular_image)
-
-# ======= AFFICHER AVEC STREAMLIT =======
-st.image(final_image)
-
-
-import streamlit as st
-
-
-import streamlit as st
 
 # Inject CSS
 st.markdown("""
